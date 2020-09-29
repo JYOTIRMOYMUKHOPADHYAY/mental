@@ -1,0 +1,107 @@
+<app-navbar></app-navbar>
+  <div class="container-fluid">
+   
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="sidebar-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="home"></span>
+                Dashboard <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/countries">
+                <span data-feather="file"></span>
+               World 
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/map">
+                <span data-feather="users"></span>
+                India
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="bar-chart-2"></span>
+                Reports
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                Integrations
+              </a>
+            </li>
+          </ul>
+  
+      
+        </div>
+      </nav>
+  
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+          <div class="col">
+             <div class="row">
+                 <div class="form-group col-lg-5 mx-auto">
+            <label for="c">Select Country</label>
+            <select name="" class="form-control" id="c" #input (change)= "updateValues(input.value)">
+              <option value="{{con}}" *ngFor="let con of countries">{{ con }}</option>
+            </select>
+          </div>
+          </div>
+     
+          <div class="row">
+              <app-dashboard-cards [totalConfirmed] = "totalConfirmed"  [totalActive] = "totalActive" 
+          [totalRecovered] = "totalRecovered" [totalDeaths] = "totalDeaths"></app-dashboard-cards>
+         
+          </div>
+        
+          </div>
+         
+        </div>
+  
+        <google-chart [type]="chart.LineChart" [data]="dataTable" [height]="chart.height" style="width: 100%" [options]="chart.options"></google-chart>
+  
+        
+     
+<div class="limiter">
+  <div class="container-table100">
+  <div class="wrap-table100">
+  <div class="table100 ver1 m-b-110">
+  <div class="table100-head">
+  <table>
+  <thead>
+  <tr class="row100 head">
+  <th class="cell100 column1">#</th>
+  <th class="cell100 column2">Date</th>
+  <th class="cell100 column3">Cases</th>
+  </tr>
+  </thead>
+  </table>
+  </div>
+  <div class="table100-body js-pscroll" *ngFor="let cs of selectedCountryData; index as i">
+  <table>
+  <tbody>
+  <tr class="row100 body" >
+  <td class="cell100 column1">{{ i + 1}}</td>
+  <td class="cell100 column2">{{cs.date | date}}</td>
+  <td class="cell100 column3">{{cs.cases}}</td>
+  
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+      </main>
+    </div>
+  </div>
+
+
+

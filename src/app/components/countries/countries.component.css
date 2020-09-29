@@ -1,0 +1,31 @@
+
+
+.new1 {
+    height: 300px;
+    width: 400px;
+    padding: 1rem;
+}
+
+.new2 {
+    height: 300px;
+    width: 400px;
+    padding: 1rem;
+}
+
+.new3 {
+    height: 300px;
+    width: 400px;
+    padding: 1rem;
+}
+
+table th {
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: black;
+}
+.State {
+    color: aqua;
+    background-color: rgba(0, 0,  alpha);
+}
